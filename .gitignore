@@ -7,3 +7,6 @@ package-lock.json
 
 node_modules
 public_html/
+vendor
+
+.bundle
