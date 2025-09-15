@@ -1,0 +1,55 @@
+# dependencies
+node_modules/
+
+# Astro build output
+dist/
+.astro/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+.env.local
+.env.*.local
+
+# macOS
+.DS_Store
+
+# editor
+.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Project documentation and notes (for AI assistant use)
+docs/
+
+# Old site backup
+old_site/
+
+# temporary files
+*.tmp
+*.temp
+.cache/
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+#misc
+CLAUDE.md
+.claude

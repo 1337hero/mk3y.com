@@ -1,0 +1,109 @@
+---
+export interface Props {
+  title?: string;
+  bio: string;
+}
+
+const { title, bio } = Astro.props;
+---
+
+<div class="bio-container">
+  {title && <h2 class="title">{title}</h2>}
+  <div class="welcome-card">
+    <span class="welcome-text">Welcome!</span>
+    <p class="bio-text">{bio}</p>
+  </div>
+</div>
+
+<style>
+  .bio-container {
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+
+  .welcome-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
+
+  :global(.dark) .welcome-card {
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(71, 85, 105, 0.3);
+  }
+
+  .welcome-text {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+
+  :global(.dark) .welcome-text {
+    color: #f0f0f0;
+  }
+
+  .bio-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin: 12px 0 0 0;
+  }
+
+  :global(.dark) .bio-text {
+    color: #b0b0b0;
+  }
+
+  @media (min-width: 768px) {
+    .bio-container {
+      margin-bottom: 40px;
+    }
+
+    .welcome-card {
+      padding: 32px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .title {
+      font-size: 1.25rem;
+    }
+
+    .bio-text {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .welcome-card {
+      padding: 20px;
+    }
+
+    .welcome-text {
+      font-size: 1.1rem;
+    }
+
+    .bio-text {
+      font-size: 0.9rem;
+    }
+  }
+</style>

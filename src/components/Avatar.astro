@@ -1,0 +1,73 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+  name: string;
+}
+
+const { src, alt, name } = Astro.props;
+---
+
+<div class="avatar-container">
+  <img class="avatar" src={src} alt={alt} />
+  <h1 class="name">{name}</h1>
+</div>
+
+<style>
+  .avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 16px;
+  }
+
+  .name {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+    text-align: center;
+  }
+
+  :global(.dark) .name {
+    color: #f0f0f0;
+  }
+
+  @media (min-width: 768px) {
+    .avatar-container {
+      margin-bottom: 32px;
+    }
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+    }
+
+    .name {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .avatar {
+      width: 100px;
+      height: 100px;
+    }
+
+    .name {
+      font-size: 1.75rem;
+    }
+  }
+</style>

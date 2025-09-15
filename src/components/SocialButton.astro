@@ -1,0 +1,83 @@
+---
+import type { Social } from '../config/site';
+
+export interface Props {
+  social: Social;
+}
+
+const { social } = Astro.props;
+
+const iconMap = {
+  youtube: 'icon-youtube',
+  instagram: 'icon-instagram',
+  tiktok: 'icon-tiktok',
+  facebook: 'icon-facebook',
+  twitter: 'icon-twitter',
+  linkedin: 'icon-linkedin',
+  github: 'icon-github'
+};
+
+const colorMap = {
+  youtube: '--youtube',
+  instagram: '--instagram',
+  tiktok: '--tiktok',
+  facebook: '--facebook',
+  twitter: '--twitter',
+  linkedin: '--linkedin',
+  github: '--github'
+};
+---
+
+<a
+  class={`button ${colorMap[social.platform]}`}
+  href={social.url}
+  role="button"
+  aria-label={social.label || `Visit ${social.platform}`}
+  rel="noopener"
+  target="_blank"
+>
+  <i class={iconMap[social.platform]} aria-hidden="true"></i>
+</a>
+
+<style>
+  .button {
+    background-color: #000;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    height: 56px;
+    width: 56px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+
+  .button:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  }
+
+  .button:active {
+    transform: translateY(0);
+  }
+
+  .button.--youtube { background: linear-gradient(135deg, #FF0000, #cc0000); }
+  .button.--facebook { background: linear-gradient(135deg, #1877f2, #0e5ec9); }
+  .button.--linkedin { background: linear-gradient(135deg, #0077b5, #005885); }
+  .button.--twitter { background: linear-gradient(135deg, #1da1f2, #0c85d0); }
+  .button.--instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+  .button.--tiktok { background: linear-gradient(135deg, #010101, #333); }
+  .button.--github { background: linear-gradient(135deg, #333, #24292e); }
+
+  @media (max-width: 380px) {
+    .button {
+      height: 48px;
+      width: 48px;
+      font-size: 1.25rem;
+    }
+  }
+</style>

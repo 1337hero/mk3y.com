@@ -1,0 +1,194 @@
+/* Font Icons */
+@font-face {
+  font-family: 'mikes-icons';
+  src: url('../fonts/mk-icons.eot');
+  src: url('../fonts/mk-icons.eot#iefix') format('embedded-opentype'),
+       url('../fonts/mk-icons.woff2') format('woff2'),
+       url('../fonts/mk-icons.woff') format('woff'),
+       url('../fonts/mk-icons.ttf') format('truetype'),
+       url('../fonts/mk-icons.svg#mikes-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: 'mikes-icons';
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Icon mappings */
+.icon-mail:before { content: "\e800"; }
+.icon-heart:before { content: "\e801"; }
+.icon-heart-empty:before { content: "\e802"; }
+.icon-star:before { content: "\e803"; }
+.icon-star-empty:before { content: "\e804"; }
+.icon-cancel:before { content: "\e805"; }
+.icon-picture:before { content: "\e806"; }
+.icon-attach:before { content: "\e807"; }
+.icon-link:before { content: "\e808"; }
+.icon-bookmark:before { content: "\e809"; }
+.icon-book:before { content: "\e80a"; }
+.icon-megaphone:before { content: "\e80b"; }
+.icon-up-open:before { content: "\e80c"; }
+.icon-down-open:before { content: "\e80d"; }
+.icon-calendar:before { content: "\e80e"; }
+.icon-tiktok:before { content: "\e80f"; }
+.icon-paper-plane:before { content: "\e810"; }
+.icon-attach-1:before { content: "\e811"; }
+.icon-ok:before { content: "\e812"; }
+.icon-heart-1:before { content: "\e813"; }
+.icon-mail-1:before { content: "\e814"; }
+.icon-house-solid:before { content: "\e815"; }
+.icon-bookmark-empty:before { content: "\f097"; }
+.icon-twitter:before { content: "\f099"; }
+.icon-facebook:before { content: "\f09a"; }
+.icon-linkedin:before { content: "\f0e1"; }
+.icon-download-cloud:before { content: "\f0ed"; }
+.icon-coffee:before { content: "\f0f4"; }
+.icon-mic:before { content: "\f130"; }
+.icon-dollar:before { content: "\f155"; }
+.icon-youtube:before { content: "\f167"; }
+.icon-instagram:before { content: "\f16d"; }
+.icon-handshake-o:before { content: "\f2b5"; }
+
+/* Reset and Base Styles */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* Modern gradient inspired by Tailwind - Violet to Purple */
+  background: linear-gradient(to bottom right, #fbbf24, #fb923c, #f97316);
+  /* Alternative: Cool gradient */
+  /* background: linear-gradient(to bottom right, #06b6d4, #3b82f6, #8b5cf6); */
+  /* Alternative: Pink to Orange sunset */
+  /* background: linear-gradient(to bottom right, #ec4899, #f43f5e, #fb923c); */
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.dark body {
+  /* Rich dark gradient with subtle color */
+  background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
+  color: #e2e8f0;
+}
+
+/* Alternative gradient backgrounds - uncomment to use */
+/* Sunset: */
+/* body { background: linear-gradient(to bottom right, #fbbf24, #f59e0b, #dc2626); } */
+/* Ocean: */
+/* body { background: linear-gradient(to bottom right, #0891b2, #0e7490, #6366f1); } */
+/* Forest: */
+/* body { background: linear-gradient(to bottom right, #10b981, #059669, #14b8a6); } */
+/* Purple Dream: */
+/* body { background: linear-gradient(to bottom right, #a78bfa, #8b5cf6, #7c3aed); } */
+/* Rose Garden: */
+/* body { background: linear-gradient(to bottom right, #fb7185, #f43f5e, #e11d48); } */
+
+::selection {
+  background: #f97316;
+  color: #fff;
+}
+
+.dark ::selection {
+  background: #f59e0b;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Smooth scrolling for mobile */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+
+.dark *:focus-visible {
+  outline: 2px solid #f59e0b;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}

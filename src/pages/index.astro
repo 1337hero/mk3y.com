@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Avatar from '../components/Avatar.astro';
+import Bio from '../components/Bio.astro';
+import SocialButton from '../components/SocialButton.astro';
+import LinkBlock from '../components/LinkBlock.astro';
+import { siteConfig } from '../config/site';
+---
+
+<Layout title={`${siteConfig.name} | ${siteConfig.title}`}>
+	<div class="container">
+		<Avatar
+			src={siteConfig.avatar}
+			alt={`${siteConfig.name}'s profile picture`}
+			name={siteConfig.name}
+		/>
+
+		<Bio
+			title={siteConfig.title}
+			bio={siteConfig.bio}
+		/>
+
+		<section class="socials" aria-label="Social media links">
+			<div class="social-grid">
+				{siteConfig.socials.map((social) => (
+					<SocialButton social={social} />
+				))}
+			</div>
+		</section>
+
+		<section class="links" aria-label="Links">
+			<h3 class="section-title">Let's Connect</h3>
+			<div class="links-container">
+				{siteConfig.links.map((link) => (
+					<LinkBlock link={link} />
+				))}
+			</div>
+		</section>
+	</div>
+
+	{siteConfig.footer && (
+		<footer>
+			<p>
+				{siteConfig.footer.text || 'Made with'}
+				<i class="icon-heart-1" aria-hidden="true" style="color: red; margin: 0 4px;"></i>
+				{siteConfig.footer.showCredit && 'by 1337 Hero'}
+			</p>
+		</footer>
+	)}
+</Layout>
+
+<style>
+	.container {
+		min-height: 100vh;
+		padding: 40px 20px 80px;
+		max-width: 600px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.socials {
+		margin-bottom: 40px;
+	}
+
+	.social-grid {
+		display: flex;
+		justify-content: center;
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+
+	.links {
+		margin-bottom: 40px;
+	}
+
+	.section-title {
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 800;
+		font-size: 1.75rem;
+		text-align: center;
+		margin: 0 0 24px 0;
+		color: #1a1a1a;
+	}
+
+	:global(.dark) .section-title {
+		color: #f0f0f0;
+	}
+
+	.links-container {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	footer {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: #000;
+		color: #fff;
+		padding: 16px;
+		text-align: center;
+		font-size: 0.9rem;
+		transition: background 0.3s ease;
+	}
+
+	:global(.dark) footer {
+		background: #0a0a0a;
+	}
+
+	footer p {
+		margin: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@media (max-width: 480px) {
+		.container {
+			padding: 24px 16px 80px;
+		}
+
+		.section-title {
+			font-size: 1.5rem;
+			margin-bottom: 20px;
+		}
+
+		.socials {
+			margin-bottom: 32px;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.container {
+			padding: 60px 20px 100px;
+		}
+	}
+</style>
