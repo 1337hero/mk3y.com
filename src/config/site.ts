@@ -63,17 +63,17 @@ export const siteConfig: SiteConfig = {
     {
       title: "My Musings & Writings",
       icon: "megaphone",
-      url: "https://mk3y.com",
+      url: "https://mikekey.com",
       color: "green"
     },
     {
-      title: "Our Investment Buy Box",
+      title: "My Investment Buy Box",
       icon: "dollar",
       url: "https://bit.ly/3rq4g2c",
       color: "green"
     },
     {
-      title: "Hometown Investors",
+      title: "Hometown Investors - My Real Estate Company",
       icon: "heart-empty",
       url: "https://hometowninvestors.com",
       color: "facebook"
