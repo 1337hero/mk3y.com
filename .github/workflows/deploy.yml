@@ -2,7 +2,7 @@ name: Deploy MK3Y Site
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 concurrency:
   group: mk3y.com-prod
@@ -84,7 +84,6 @@ jobs:
       - name: Deploy via rsync
         run: |
           rsync -az --delete \
-            --chown=${SSH_USER}:www-data --chmod=D2775,F664 \
             --omit-dir-times \
             -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=accept-new" \
             ./dist/ "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
